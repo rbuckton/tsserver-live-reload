@@ -1,0 +1,59 @@
+{
+	"name": "tsserver-live-reload",
+	"displayName": "TypeScript Language Server Live Reload",
+	"description": "Reload the TypeScript Language Server whenever it changes.",
+	"version": "1.0.1",
+	"author": "Ron Buckton <ron.buckton@microsoft.com>",
+	"publisher": "rbuckton",
+	"engines": {
+		"vscode": "^1.38.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onLanguage:javascript",
+		"onLanguage:javascriptreact",
+		"onLanguage:typescript",
+		"onLanguage:typescriptreact"
+	],
+	"main": "./out/extension.js",
+	"license": "MIT",
+    "bugs": {
+        "url": "https://github.com/rbuckton/tsserver-live-reload/issues"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/rbuckton/tsserver-live-reload.git"
+    },
+	"contributes": {
+		"configuration": {
+			"title": "TypeScript Language Server Live Reload",
+			"properties": {
+				"tsserver-live-reload.enable": {
+					"type": "boolean",
+					"default": true,
+					"description": "Automatically restart the TypeScript Language Server when changes to '<typescript.tsdk>/tsserver.js' are detected."
+				}
+			}
+		}
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"pretest": "npm run compile",
+		"test": "node ./out/test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/glob": "^7.1.1",
+		"@types/mocha": "^5.2.6",
+		"@types/node": "^10.12.21",
+		"@types/vscode": "^1.38.0",
+		"glob": "^7.1.4",
+		"mocha": "^6.1.4",
+		"typescript": "^3.3.1",
+		"tslint": "^5.12.1",
+		"vscode-test": "^1.2.0"
+	}
+}
